@@ -1,0 +1,20 @@
+{
+  "list": [
+    {
+      "id": "1",
+      "name": "Qué hacer?",
+      "tasks": [
+      ]
+    },
+    {
+      "id": "2",
+      "name": "¡En progreso!",
+      "tasks": []
+    },
+    {
+      "id": "3",
+      "name": "¡Está hecho!",
+      "tasks": []
+    }
+  ]
+}

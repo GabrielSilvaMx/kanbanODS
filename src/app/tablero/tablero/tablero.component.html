@@ -1,0 +1,28 @@
+<main class="tablero" cdkDropListGroup>
+    <button
+      class="tablero__add"
+      cdkOverlayOrigin
+      (click)="displayOverlay()"
+      #trigger="cdkOverlayOrigin"
+      mat-raised-button
+      color="primary"
+    >
+      Añadir Tarea
+    </button>
+    <section class="tablero__list">
+      <app-lista *ngFor="let list of lists" [list]="list"></app-lista>
+    </section>
+    <ng-template
+      #connectedOverlay="cdkConnectedOverlay"
+      cdkConnectedOverlay
+      [cdkConnectedOverlayOrigin]="trigger"
+      [cdkConnectedOverlayOpen]="isOverlayDisplayed"
+      [cdkConnectedOverlayHasBackdrop]="overlayOptions.hasBackdrop"
+      [cdkConnectedOverlayPositions]="overlayOptions.positions"
+      (backdropClick)="hideOverlay()"
+      (detach)="hideOverlay()"
+    >
+    <app-crear-tarea [connectedOverlay]="connectedOverlay" [task]="task" [listId]="listId"></app-crear-tarea>
+    </ng-template>
+  </main>
+  
