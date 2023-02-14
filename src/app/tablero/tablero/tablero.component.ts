@@ -44,9 +44,14 @@ export class TableroComponent implements OnInit {
 
   getDataList(): void {
     this.apiService.getApi().subscribe(
+      (response: any) => (this.lists = response),
+      (error: string) => console.log('Se ha encontrado un error: ', error)
+    );
+    /*this.apiService.getApi().subscribe(
       (response: any) => (this.lists = response['list']),
       (error: string) => console.log('Se ha encontrado un error: ', error)
     );
+    */
   }
 
   getDataStored(): void {

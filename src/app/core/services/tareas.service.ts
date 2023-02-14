@@ -18,10 +18,12 @@ export class TareasService {
   }
 
   /* Load initial data to render in a component */
-  loadInitialData(): any {
-    return this.apiService.getApi().subscribe((response: any) => {
+  loadInitialData(): any {   
+    return this.apiService.getApiODS().subscribe((response: any) => {
       if (!!response) {
-        this.boardList.next(response['list']);
+        this.boardList.next(response); //Spring Boot ODS        
+        //console.log(response[0]);        
+        //this.boardList.next(response['list']);
       }
     });
   }
@@ -42,7 +44,11 @@ export class TareasService {
     const elementsIndex = this.list.findIndex(
       (element) => element.id === '1'
     );
-    this.list[elementsIndex].tasks.push(card);
+    this.apiService.postApi().subscribe(
+      (response: any) => ( console.log('Registro agregado: ')),
+      (error: string) => console.log('Se ha encontrado un error: ', error)
+    );
+    this.list[elementsIndex].tasks.push(card) 
   }
 
   /* Editar una tarjeta del tablero */

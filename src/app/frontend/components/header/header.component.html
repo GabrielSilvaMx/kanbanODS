@@ -1,25 +1,49 @@
 
-<mat-toolbar color="primary" class="toolbar">
-    <span>Kanban ODS</span>
-    <span class="toolbar__spacer"></span>
-    <nav class="toolbar__menu">
-      <ul>
-        <li>
-          <button mat-icon-button class="toolbar__menu__icon favorite-icon" aria-label="Inicio">
-            <mat-icon>home</mat-icon>
-          </button>
-          <a href="#" routerLink="/home" routerLinkActive="active" class="toolbar__menu__text">
-            <span >Inicio</span>
-          </a>
-        </li>
-        <li>
-          <button mat-icon-button class="toolbar__menu__icon" aria-label="Tablero">
-            <mat-icon>note</mat-icon>
-          </button>
-          <a href="#" routerLink="/tablero" routerLinkActive="active" class="toolbar__menu__text"><span>
-            Tablero</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </mat-toolbar>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a href="#" class="navbar-brand">kanban ODS</a>
+  <ul class="navbar-nav mr-auto" routerLinkActive="active">
+    <li class="nav-item">
+      <button mat-icon-button class="toolbar__menu__icon favorite-icon" aria-label="Inicio">
+        <mat-icon>home</mat-icon>
+      </button>
+      <a href="#" routerLink="/home" routerLinkActive="active" class="toolbar__menu__text">
+        <span >Inicio</span>
+      </a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <button mat-icon-button class="toolbar__menu__icon" aria-label="Tablero">
+        <mat-icon>note</mat-icon>
+      </button>
+      <a href="#" routerLink="/tablero" routerLinkActive="active" class="toolbar__menu__text"><span>
+        Tablero</span>
+      </a>
+    </li>
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+    </li>
+    <li class="nav-item" *ngIf="showModeratorBoard">
+      <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+    </li>
+    <li class="nav-item">
+      <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+    <li class="nav-item">
+      <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+    </li>
+    <li class="nav-item">
+      <a href="/login" class="nav-link" routerLink="login">Login</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+    </li>
+    <li class="nav-item">
+      <a href class="nav-link" (click)="logout()">LogOut</a>
+    </li>
+  </ul>
+</nav>
