@@ -44,7 +44,7 @@ export class TareasService {
     const elementsIndex = this.list.findIndex(
       (element) => element.id === '1'
     );
-    this.apiService.postApi(card.description, card.priority, card.date).subscribe(
+    this.apiService.postApi().subscribe(
       (response: any) => ( console.log('Registro agregado ')),
       (error: string) => console.log('Se ha encontrado un error: ', error)
     );

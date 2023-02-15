@@ -3,7 +3,6 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { throwError as observableThrowError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { ListaSchema, TareaSchema } from 'src/app/core/models';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,9 +19,6 @@ export class ApiService {
  private _jsonURL = 'assets/list.json';
 
  private apiRoot: string = 'https://run.mocky.io/v3/7841d1af-e8d5-446a-bac5-3506fdd05659';
-
- idUsuario = 2;
- idProyecto = 1;
   
   constructor(private http: HttpClient) { 
     this.getJSON().subscribe(data => {
@@ -44,20 +40,19 @@ export class ApiService {
       .pipe(map(data => data), catchError(this.handleError));
   }
 
-  postApi(description:string = '', priority:string='', date: Date | string) {
+  postApi() {
     return this.http
-      .post(ODS_API + '/tareas/proyecto/'+this.idProyecto+'/usuario/'+this.idUsuario, {
-          cardID : "CARD-BEDU-2023-010",
-          date: date,
-          priority: priority,
+      .post(ODS_API + '/tareas/proyecto/1/usuario/2', {
+          cardID : "BEDU-RECICLA-003",
+          date: "2023-02-16",
+          priority: "low",
           transicion: "working",
           estado: "progress",
-          description: description,
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           tiempoEstimado: "1 semana"
     }, httpOptions);
   }
 
-  
   deleteApi(idTarea:string='') {
     return this.http
       .delete(ODS_API + '/tareas/'+idTarea, httpOptions);
