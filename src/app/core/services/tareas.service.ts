@@ -19,11 +19,11 @@ export class TareasService {
 
   /* Load initial data to render in a component */
   loadInitialData(): any {   
-    return this.apiService.getApiODS().subscribe((response: any) => {
+    return this.apiService.getJSON().subscribe((response: any) => {
       if (!!response) {
         this.boardList.next(response); //Spring Boot ODS        
-        //console.log(response[0]);        
-        //this.boardList.next(response['list']);
+        //console.log(response);
+        this.boardList.next(response['list']);
       }
     });
   }
@@ -44,8 +44,8 @@ export class TareasService {
     const elementsIndex = this.list.findIndex(
       (element) => element.id === '1'
     );
-    this.apiService.postApi().subscribe(
-      (response: any) => ( console.log('Registro agregado: ')),
+    this.apiService.postApi(card.description, card.priority, card.date).subscribe(
+      (response: any) => ( console.log('Registro agregado ')),
       (error: string) => console.log('Se ha encontrado un error: ', error)
     );
     this.list[elementsIndex].tasks.push(card) 
@@ -70,6 +70,11 @@ export class TareasService {
 
   /* Eliminar una tarjeta del tablero  */
   removeTask(dataId: string, list: ListaSchema): void {
+    console.log("dataId:" + dataId);
+    this.apiService.deleteApi(dataId).subscribe(
+      (response: any) => ( console.log('Registro eliminado ')),
+      (error: string) => console.log('Se ha encontrado un error: ', error)
+    );
     const elementsIndex = this.list.findIndex(
       (element) => element.id == list.id
     );

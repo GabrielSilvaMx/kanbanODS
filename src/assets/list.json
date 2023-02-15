@@ -1,0 +1,42 @@
+{
+  "list": [
+    {
+      "id": "1",
+      "name": "Qué hacer?",
+      "tasks": [
+          {
+            "links": [],
+            "id": 1,
+            "cardID": "BEDU-RECICLA-001",
+            "date": "2022-12-19T06:00:00.000+00:00",
+            "priority": "moderate",
+            "transicion": "working",
+            "estado": "progress",
+            "description": "a) Realizaré una encuesta al personal para ver si tienen algún equipo que ya no les sirva.",
+            "tiempoEstimado": "1 semana"
+        },
+        {
+            "links": [],
+            "id": 2,
+            "cardID": "BEDU-RECICLA-002",
+            "date": "2023-01-10T06:00:00.000+00:00",
+            "priority": "low",
+            "transicion": "waiting",
+            "estado": "Do",
+            "description": "a) Pasaré con cada uno del personal para recoger el equipo electrónico que ya no les sirva. b) Se guardarán en almacén temporalmente.",
+            "tiempoEstimado": "3 días"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "¡En progreso!",
+      "tasks": []
+    },
+    {
+      "id": "3",
+      "name": "¡Está hecho!",
+      "tasks": []
+    }
+  ]
+}

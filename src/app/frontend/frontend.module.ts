@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BoardAdminComponent } from './board/board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board/board-user/board-user.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const declarables = [
   HeaderComponent,
@@ -31,7 +32,7 @@ const declarables = [
     ProfileComponent, 
     BoardAdminComponent, 
     BoardModeratorComponent, 
-    BoardUserComponent
+    BoardUserComponent, NotfoundComponent
   ],
   imports: [
     CommonModule,

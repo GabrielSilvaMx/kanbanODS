@@ -1,10 +1,11 @@
 <div class="col-md-12">
-    <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
+  <h2>Ingreso</h2>
+  <div class="card card-container" style="width: 12rem;">
+    <img
+      id="profile-img"
+      src="assets/bedu_original.png"
+      class="profile-img-card"
+    />
       <form
         *ngIf="!isLoggedIn"
         name="form"
@@ -13,7 +14,7 @@
         novalidate
       >
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Correo electrónico</label>
           <input
             type="text"
             class="form-control"
@@ -27,11 +28,11 @@
             role="alert"
             *ngIf="f.submitted && username.invalid"
           >
-            Username is required!
+            El correo electrónico es obligatorio
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Contraseña</label>
           <input
             type="password"
             class="form-control"
@@ -46,9 +47,9 @@
             role="alert"
             *ngIf="f.submitted && password.invalid"
           >
-            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.required">La contraseña es obligatorio</div>
             <div *ngIf="password.errors.minlength">
-              Password must be at least 6 characters
+              La contraseña debe contener al menos 6 caracteres
             </div>
           </div>
         </div>
@@ -63,13 +64,13 @@
             role="alert"
             *ngIf="f.submitted && isLoginFailed"
           >
-            Login failed: {{ errorMessage }}
+            Error al loguearse: {{ errorMessage }}
           </div>
         </div>
       </form>
   
       <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ roles }}.
+        Se ha logueado con el rol: {{ roles }}.
       </div>
     </div>
   </div>

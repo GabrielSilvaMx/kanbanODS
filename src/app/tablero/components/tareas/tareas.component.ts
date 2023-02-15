@@ -36,7 +36,7 @@ export class TareasComponent  implements OnInit {
   ngOnInit(): void {}
 
   handleEditTask(task: TareaSchema) {
-    //console.log('handle! ');
+    console.log('handle! ');
     this.editTask.emit(task);
   }
 

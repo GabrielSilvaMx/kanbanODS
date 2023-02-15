@@ -11,6 +11,7 @@ import { TokenStorageService } from 'src/app/core/services/token-storage.service
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  isLoggedIn = false;
   taskList?: TareaSchema[];
   content: string = '';
   currentUser: any;
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
                private token: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.token.getToken();
     this.currentUser = this.token.getUser();
     this.currenToken = this.token.getToken();
     console.log("home::ngOnInit::getPublicContent::token ="+this.currenToken);

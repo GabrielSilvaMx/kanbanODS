@@ -5,10 +5,7 @@
     <mat-icon aria-hidden="false" aria-label="medium icon" *ngIf="task.priority === 'moderate'">autorenew</mat-icon>
     <mat-icon aria-hidden="false" aria-label="medium icon" *ngIf="task.priority === 'low'">assignment_returned</mat-icon>
   </div>
-  <h3 class="task__title">Tarea</h3>
-  <button  matTooltip="Editar tarea" matTooltipClass="custom-tooltip-blue" matTooltipPosition="above" mat-icon-button (click)="handleEditTask(task)">
-    <mat-icon aria-label="icon-button to edit">editar</mat-icon>
-  </button>
+  <h3 class="task__title">Tarea</h3>  
   <button  matTooltip="Eliminar tarea" matTooltipPosition="above" mat-icon-button (click)="removeTask(task.id)">
     <mat-icon aria-label="icon-button to remove">delete</mat-icon>
   </button>

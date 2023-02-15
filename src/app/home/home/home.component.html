@@ -7,7 +7,7 @@
       rápido y lograr su realización
     </p>
     <p>Por ello en este tablero te invitamos a organizar tu día a día</p>
-    <section class="home__task-list">
+    <section class="home__task-list" *ngIf="isLoggedIn">
       <h2 class="home__task-list__title">Lista de tareas</h2>
       <div class="home__task-list__buttons">
         <button

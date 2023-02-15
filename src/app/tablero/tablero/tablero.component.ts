@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkConnectedOverlay } from '@angular/cdk/overlay';
+import { TokenStorageService } from 'src/app/core/services/token-storage.service';
 
 import { ApiService } from './../../core';
 import { ListaSchema, TareaSchema } from 'src/app/core/models';
@@ -20,6 +21,7 @@ const initialValue = {
 })
 
 export class TableroComponent implements OnInit {
+  isLoggedIn = false;
   lists: ListaSchema[];
   task: TareaSchema;
   listId: string = '';
@@ -32,12 +34,14 @@ export class TableroComponent implements OnInit {
     ]
   };
 
-  constructor(private apiService: ApiService, private tareasService: TareasService) {
+  constructor(private apiService: ApiService, private tareasService: TareasService,
+    private tokenStorageService: TokenStorageService) {
     this.lists = [];
     this.task = initialValue;
   }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
     //this.getDataList();
     this.getDataStored();
   }

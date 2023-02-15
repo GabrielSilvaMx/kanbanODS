@@ -11,7 +11,7 @@ import { TareasService } from 'src/app/core/services/tareas.service';
 export class ListaComponent implements OnInit {
   @Input()
   list: ListaSchema; //  operador de aserción no nulo en TypeScript
-
+  
   @Output() editTask: EventEmitter<TareaSchema> = new EventEmitter();
 
   constructor(public tareasService: TareasService) {
@@ -25,7 +25,8 @@ export class ListaComponent implements OnInit {
   ngOnInit(): void {}
 
   drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
+    console.log((event.previousContainer === event.container) + " > "+ event.previousIndex + " - " + event.currentIndex)
+    if (event.previousContainer === event.container) {      
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(
@@ -34,11 +35,14 @@ export class ListaComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
+      console.log("drop: "+this.list.id);
     }
   }
   
   handleEdit(task: TareaSchema) {
     if (this.list) {
+      //console.log("ListaComponent::handleEdit:: ");
+      //console.log(this.list);
       task.listId = this.list.id;
       this.editTask.emit(task);
     }

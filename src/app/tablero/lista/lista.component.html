@@ -13,7 +13,6 @@
       *ngFor="let task of list.tasks"
       [task]="task"
       [list]="list"
-      (editTask)="handleEdit(task)"
       cdkDrag
     ></app-tareas>
   </div>

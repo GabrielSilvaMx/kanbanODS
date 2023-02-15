@@ -1,3 +1,4 @@
+<section *ngIf="isLoggedIn">
 <main class="tablero" cdkDropListGroup>
     <button
       class="tablero__add"
@@ -25,4 +26,4 @@
     <app-crear-tarea [connectedOverlay]="connectedOverlay" [task]="task" [listId]="listId"></app-crear-tarea>
     </ng-template>
   </main>
-  
+</section>

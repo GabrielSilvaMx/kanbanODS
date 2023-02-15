@@ -8,6 +8,7 @@ import { ProfileComponent } from './frontend/components/profile/profile.componen
 import { BoardUserComponent } from './frontend/board/board-user/board-user.component';
 import { BoardModeratorComponent } from './frontend/board/board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './frontend/board/board-admin/board-admin.component';
+import { NotfoundComponent } from './frontend/components/notfound/notfound.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,9 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren:()=> import('./home/home.module').then(m=>m.HomeModule)
-  }
+  },
+  {path: '404', component: NotfoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({
