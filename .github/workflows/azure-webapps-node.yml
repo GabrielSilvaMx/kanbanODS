@@ -45,7 +45,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run build --prod
+        npm run build --production
       working-directory: .
      
     - name: Zip artifact for deployment
@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Development'
+      name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
