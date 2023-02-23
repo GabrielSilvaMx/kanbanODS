@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './core/services/token-storage.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,12 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username: string = '';
+  log_title = environment.log_title;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    console.log(this.log_title);
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {

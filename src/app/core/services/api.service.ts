@@ -3,12 +3,13 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { throwError as observableThrowError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const ODS_API = 'http://localhost:8084/api';
+const ODS_API = environment.apiODS + '/api';
 
 @Injectable({
   providedIn: 'root'

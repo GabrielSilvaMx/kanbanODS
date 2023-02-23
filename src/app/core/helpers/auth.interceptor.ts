@@ -5,10 +5,14 @@ import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http'
 import { TokenStorageService } from '../services/token-storage.service';
 import { Observable } from 'rxjs';
 
+import { environment } from 'src/environments/environment';
+
 const TOKEN_HEADER_KEY = 'Authorization';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  apiODS = environment.apiODS;
+
   constructor(private token: TokenStorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
