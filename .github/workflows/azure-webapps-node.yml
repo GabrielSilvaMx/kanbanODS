@@ -46,7 +46,7 @@ jobs:
       run: |
         npm install
         npm run build --prod
-      working-directory: .
+      working-directory: kanban-ods
      
     - name: Zip artifact for deployment
       run: zip release.zip ./* -r
