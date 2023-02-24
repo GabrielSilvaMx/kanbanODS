@@ -6,6 +6,6 @@ export const environment = {
   
     apiURL: 'https://webapp-ods-14633.azurewebsites.net',
 
-    apiODS: 'http://192.168.1.70:80'
+    apiODS: 'https://java-odsapi-14633.azurewebsites.net'
   
   };
