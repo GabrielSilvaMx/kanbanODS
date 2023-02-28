@@ -6,6 +6,6 @@ export const environment = {
   
     apiURL: 'https://webapp-ods-14633.azurewebsites.net',
 
-    apiODS: 'https://java-odsapi-14633.azurewebsites.net'
+    apiODS: 'https://kanban-ods.azurewebsites.net'
   
   };
